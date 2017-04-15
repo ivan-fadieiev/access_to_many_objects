@@ -1,0 +1,36 @@
+USER_PAGE
+<%= form_for @user_info, url: edit_user_info_path(user_id: @user_id), method: :put do |f| %>
+    <% if @user_info.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user_info.errors.count, "error") %> prohibited this info from being saved:</h2>
+
+          <ul>
+            <% @user_info.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <%= f.text_field :name %><br>
+    <%= f.text_field :email %><br>
+    <br>first<br>
+    <%= f.text_field :add_first_title %><br>
+    <%= f.text_field :add_first_body %><br>
+    <%= f.text_field :add_first_text %><br>
+    <br>second<br>
+    <%= f.text_field :add_second_title %><br>
+    <%= f.text_field :add_second_body %><br>
+    <%= f.text_field :add_second_text %><br>
+    <br>third<br>
+    <%= f.text_field :add_third_title %><br>
+    <%= f.text_field :add_third_body %><br>
+    <%= f.text_field :add_third_text %><br>
+    <br>fourth<br>
+    <%= f.text_field :add_fourth_title %><br>
+    <%= f.text_field :add_fourth_body %><br>
+    <%= f.text_field :add_fourth_text %><br>
+    <br>
+    <%= f.hidden_field :id, value: params[:id]%>
+    <%= f.submit 'UPDATE' %>
+<% end %>
